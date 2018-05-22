@@ -1,0 +1,42 @@
+AIDS dataset contains the topological structures of 40000 chemical compounds that have been tested 
+for evidence of anti-HIV activity (available from NCBI). Compounds are undirected graphs where the 
+number of vertices varies from 4 to 245. They are small sparse graphs. Since the AIDS dataset 
+contains relatively small graphs, the patterns are graphs of the dataset. Patterns were divided 
+into four groups, each group has 100 graphs, and each graph may have 4, 8, 16 or 32 vertices. The 
+topology of patterns was chosen in order to respect the average degree and label distribution of 
+the target graphs. This implies that patterns were often quite complex. 
+[National Cancer Institute. http://www.nci.nih.gov/]
+
+------------------------------------------------------------------------------------------------------
+
+Undirect graphs.
+
+Format:
+
+#GraphName
+NumberOfNodes
+NodesAttributesList
+...
+NumerOfEdges
+Source Target
+
+
+GraphName and Attributes can not contain blanks (spaces, tabs, etc...)
+Node ids are assigned implictly by attributes orderstarting from 0.
+
+#graph
+3
+A
+B
+C
+2
+0 1
+1 2
+
+A graph with 3 nodes and 2 edges.
+A has id 0, B has id 1, C has id 2.
+
+Since graphs are undirect, if edges  (0,1) is presente then edge (1,0) can not be present in edges lists.
+
+
+Queries are expressed by size (number of edges).

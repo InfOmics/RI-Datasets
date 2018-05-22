@@ -1,0 +1,83 @@
+PDBSv2 (protein backbones):
+This dataset contains 40 proteins represented by the backbones of the proteins coming from the 
+crystallography downloaded from JenaLib and RCSB. converted to graphs by BALL library . They are 
+medium sparse graphs. They may have from 1683 to 7979 vertices per graph. Pattern graphs were 
+extracted from the corresponding target graphs as we have done for dataset PDBSv1. We create seven 
+groups of 10 random patterns, re ecting the typology of the target graphs, having a number of edges 
+equals to 4, 8, 16, 32, 64, 128 and 256. 
+[Huehne R, Suehnel J: The Jena Library of Biological Macromolecules. Nature-precedings 2009.]
+[Protein Data Bank. http://www.rcsb.org/pdb/.]
+[Boghossian N, Kohlbacher O, Lenhof H: BALL: Biochemical Algorithms Library. In Proceeding of the 
+3rd workshop on algorithms engineering WAE 99 Lecture Notes in Computer Science, 1668, Springer, 
+Berlin, London, UK, pp. 330-344, 1999.]
+
+PDBSv3 (contact maps):
+This dataset contains 50 contact maps of the amino acids of the domains of the proteins, retrieved by 
+CMView. They represent relationships among amino acids. Contact maps are small dense graphs. In 
+average a graph may have 380 vertices. Since target graphs are dense, we extracted from them different 
+types of pattern graphs (from dense to sparse) to vary the performance comparisons. Patterns were 
+generated from the corresponding target graphs giving the number of desired edges. Dense patterns are 
+constructed by forcing the number of vertices to be approximately equal to 25% of the number of edges. 
+Semi-dense patterns have a number of vertices almost equal to 50% of the number of edges. For the 
+sparse patterns the percentage of vertices is set to 90% and cycles avoid simple structures as paths. 
+Each pattern tends to reach the desired percentage of vertices. For each density of patterns, we 
+create seven groups of 10 random patterns having a number of edges equals to 4, 8, 16, 32, 64, 128 
+and 256. 
+[Huehne R, Suehnel J: The Jena Library of Biological Macromolecules. Nature-precedings 2009.]
+[Protein Data Bank. http://www.rcsb.org/pdb/.]
+[Boghossian N, Kohlbacher O, Lenhof H: BALL: Biochemical Algorithms Library. In Proceeding of the 3rd 
+workshop on algorithms engineering WAE 99 Lecture Notes in Computer Science, 1668, Springer, Berlin, 
+London, UK, pp. 330-344, 1999.] [Vehlow C, Stehr H, Winkelmann M, Duarte JM, Petzold L, Dinse J, 
+Lappe M: CMView: Interactive contact map visualization and analysis. Bioinformatics 2011.]
+
+------------------------------------------------------------------------------------------------------
+
+Undirect graphs
+
+Format:
+
+#GraphName
+NumberOfNodes
+NodesAttributesList
+...
+NumerOfEdges
+Source Target
+
+
+GraphName and Attributes can not contain blanks (spaces, tabs, etc...)
+Node ids are assigned implictly by attributes orderstarting from 0.
+
+#graph
+3
+A
+B
+C
+2
+0 1
+1 2
+
+A graph with 3 nodes and 2 edges.
+A has id 0, B has id 1, C has id 2.
+
+Since graphs are undirect, if edges  (0,1) is presente then edge (1,0) can not be present in edges lists.
+
+
+Queries are expressed by size (number of edges).
+
+
+Each folder is releted to a protein.
+
+
+Given the protein 1A0G:
+ - 1A0G/1A0G.gff is the backbone structure
+ - 1A0G/1A0G.h.gff is the backbone structure plus hydrogens
+ - 1A0G/1A0G.cm.* are the structures of the protein domains
+ - 1A0G/queries  contains the queries extracted from each type of structure
+ - 1A0G/queries/cmap/query_[SIZE]_[DOMAIN].05.gff are dense queries
+ - 1A0G/queries/cmap/query_[SIZE]_[DOMAIN].025.gff are semi dense queries
+ - 1A0G/queries/cmap/query_[SIZE]_[DOMAIN].gff are sparse queries
+
+
+The folder "grouped" contains sets of compound structures and query graphs grouped by type.
+The target database of protein backbones is "grouped/backbones_all.gff.
+The target database of contact maps is "grouped/cmap_all.gff.

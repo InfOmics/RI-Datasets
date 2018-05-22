@@ -1,0 +1,62 @@
+This dataset contains 10 networks describing the known and predicted protein interactions downloaded 
+from STRING. We used the following organisms: Mus musculus, Saccaromyces cerevisiae, Caenorhabditis 
+elegans, Drosophila melanogaster, Takifugu rubipres, Danio rerio, Xenopus tropicalis, Bos taurus, 
+Rattus norvegicus, and Homo sapiens. They are large dense graphs. The original version of the dataset 
+having unique node labels (protein ids) is also randomly relabeled with 32, 64, 128, 256, 512, 1024, 
+and 2048 number of labes. Labels are assigned using a uniform distribution and a normal distribution 
+(gaussian). We extracted from the target graphs sets of 20 dense, semidense and sparse patterns for 
+each pattern dimension (the number of edges vary from 4, 8, 16, 32, 64, 128, to 256). 
+[Szklarczyk D, Franceschini A, Kuhn M, Simonovic M, Roth A, Minguez P, Doerks T, Stark M, Muller J, 
+Bork P, Jensen L, von Mering C: The STRING database in 2011: functional interaction networks of 
+proteins, globally integrated and scored. Nucleic Acids Res. 2011, 39.]
+
+------------------------------------------------------------------------------------------------------
+
+Undirect graphs
+
+Format:
+
+#GraphName
+NumberOfNodes
+NodesAttributesList
+...
+NumerOfEdges
+Source Target
+
+
+GraphName and Attributes can not contain blanks (spaces, tabs, etc...)
+Node ids are assigned implictly by attributes orderstarting from 0.
+
+#graph
+3
+A
+B
+C
+2
+0 1
+1 2
+
+A graph with 3 nodes and 2 edges.
+A has id 0, B has id 1, C has id 2.
+
+Since graphs are undirect, if edges  (0,1) is presente then edge (1,0) can not be present in edges lists.
+
+
+Queries are expressed by size (number of edges).
+
+The dataset is primarly split by label distribution type.
+
+
+
+Each distribution type is split by number of lables: 1, 32, 64, ..., 2048 and unique labels.
+- "unique" contains the original dataset with unique labels
+- "sdistr" contains the dataset labeled with normal distribution (gaussian)
+- "udistr" contains the dataset labeled with uniform distribution (flat)
+
+Each sub dataset [DISTR]/[#LABELS] contains:
+ - [DISTR]/[#LABELS]/*.gfd  original strctures relabeled with #LABEL labels
+ - [DISTR]/[#LABELS]/q-1/[NET].[SIZE].*	sparse queries
+ - [DISTR]/[#LABELS]/q0.5/[NET].[SIZE].*	semi dense queries
+ - [DISTR]/[#LABELS]/q0.25/[NET].[SIZE].*	dense queries
+ - [DISTR]/[#LABELS]/db.all	the entire set of target graphs
+ - [DISTR]/[#LABELS]/all/q*.all	sets of queries grouped by density

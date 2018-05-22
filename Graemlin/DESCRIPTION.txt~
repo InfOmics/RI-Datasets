@@ -1,0 +1,55 @@
+This dataset contains 10 microbial networks (Campylobacter jejuni, Caulobacter crescentus, 
+Helicobacter pylori 26695, Salmonella typhimurium LT2, Synechocystis PCC6803, Vibrio cholerae, 
+Escherichia coli K12, Mycobacterium tuberculosis H37Rv, Streptococcus pneumoniae TIGR4, 
+Streptomyces coelicolor ). The dataset is proposed with original unique labels, and varying the number 
+of assigned random labeled from 32, 64, 128, 256, 512, 1024, to 2048.Labels are assigned using a 
+uniform distribution. We create sets of 20 dense, semidense and sparse patterns for each pattern 
+dimension (4, 8, 16, 32, 64, 128, to 256). 
+[Flannick J, Novak A, Srinivasan B, McAdams H, Batzoglou S: Graemlin: general and robust alignment of 
+multiple large interaction networks. Genome research 2006, 16(9):1169.]
+
+------------------------------------------------------------------------------------------------------
+
+Undirect graphs
+
+Format:
+
+#GraphName
+NumberOfNodes
+NodesAttributesList
+...
+NumerOfEdges
+Source Target
+
+
+GraphName and Attributes can not contain blanks (spaces, tabs, etc...)
+Node ids are assigned implictly by attributes orderstarting from 0.
+
+#graph
+3
+A
+B
+C
+2
+0 1
+1 2
+
+A graph with 3 nodes and 2 edges.
+A has id 0, B has id 1, C has id 2.
+
+Since graphs are undirect, if edges  (0,1) is presente then edge (1,0) can not be present in edges lists.
+
+
+Queries are expressed by size (number of edges).
+
+
+The dataset is primarly split by number of lables: 1, 32, 64, ..., 2048 and unique labels.
+
+
+Each sub dataset [#LABELS] contains:
+ - [#LABELS]/*.net  original strctures relabeled with #LABEL labels
+ - [#LABELS]/q	sparse queries
+ - [#LABELS]/q0.5	semi dense queries
+ - [#LABELS]/q0.25	dense queries
+ - [#LABELS]/all/db.gfd	the entire set of target graphs
+ - [#LABELS]/all/q*.all	sets of queries grouped by density

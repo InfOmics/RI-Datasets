@@ -1,0 +1,52 @@
+This dataset contains 30 graphs with data from DNA, RNA, and proteins having up to 33067 vertices. 
+Original structures can be downloaded from the JenaLib and RCSB. Downloaded molecules in PDB format 
+were converted in graphs using BALL. The dataset mostly contains large sparse graphs. 
+Pattern graphs were extracted from the corresponding target graphs fixing the number of wanted edges. 
+Patterns are subgraphs (monomorphisms) of their corresponding target graphs. We create six groups of 
+10 random patterns having a number of edges equals to 4, 8, 16, 32, 64, and 128. 
+[Huehne R, Suehnel J: The Jena Library of Biological Macromolecules. Nature-precedings 2009.]
+[Protein Data Bank. http://www.rcsb.org/pdb/.]
+[Boghossian N, Kohlbacher O, Lenhof H: BALL: Biochemical Algorithms Library. In Proceeding of the 3rd 
+workshop on algorithms engineering WAE 99 Lecture Notes in Computer Science, 1668, Springer, Berlin, 
+London, UK, pp. 330-344, 1999.]
+
+------------------------------------------------------------------------------------------------------
+
+Undirect graphs
+
+Format:
+
+#GraphName
+NumberOfNodes
+NodesAttributesList
+...
+NumerOfEdges
+Source Target
+
+
+GraphName and Attributes can not contain blanks (spaces, tabs, etc...)
+Node ids are assigned implictly by attributes orderstarting from 0.
+
+#graph
+3
+A
+B
+C
+2
+0 1
+1 2
+
+A graph with 3 nodes and 2 edges.
+A has id 0, B has id 1, C has id 2.
+
+Since graphs are undirect, if edges  (0,1) is presente then edge (1,0) can not be present in edges lists.
+
+
+Queries are expressed by size (number of edges).
+
+
+The folder "singles" contains compound structures and related extracted queries.
+
+
+The entire set of compound strcutures is grouped into grouped/singles_all.gff.
+Queries are grouped by size in "grouped/queries_[SIZE]_all.gff"
