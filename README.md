@@ -64,5 +64,13 @@ We extracted from the target graphs sets of 20 dense, semidense and sparse patte
 The synthetic dataset distributed by Sansone et al. They are pairs of unlabeled graphs having sizes varying from 20 to 1000 vertices. The dataset contains the following kinds of graphs: Bounded Valence: (the number of edges per vertex varies from 3, 6, 9), Mesh( 2D, 3D and 4D, where 2,3,4 indicate the dimensionality of the meshes), and Random (edges are added according to a fixed probability; edges are independent and the probability distribution is uniform). The synthetic dataset is composed of pairs of (target and pattern) graphs. 
 [Foggia P, Sansone C, Vento M: A Database of Graphs for Isomorphism and Sub-Graph Isomorphism Benchmarking. Proceedings of the 3rd IAPR TC-15 Workshop on Graph-based Representations in Pattern Recognition 2001.]
 
+<hr />
+
 ### RI 
 [RI Repository](https://github.com/GiugnoLab/RI)
+
+<hr />
+
+### License
+RI is distributed under the MIT license. This means that it is free for both academic and commercial use. Note however that some third party components in RI require that you reference certain works in scientific publications. You are free to link or use RI inside source code of your own program. If do so, please reference (cite) RI and this website. We appreciate bug fixes and would be happy to collaborate for improvements.
+[License](https://raw.githubusercontent.com/GiugnoLab/RI-Datasets/master/LICENSE)
